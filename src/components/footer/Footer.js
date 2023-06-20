@@ -56,13 +56,13 @@ export class Footer extends Component {
 
         <div className="social-cnt">
           <div className="icons">
-            <a href="https://twitter.com/TAEesport">
+            <a href="https://twitter.com/">
               <img src={twitter} alt="twitter-logo" className="twitter" />
             </a>
-            <a href="https://www.twitch.tv/taeesports">
+            <a href="https://www.twitch.tv/">
               <img src={twitch} alt="twitch-logo" className="twitch" />
             </a>
-            <a href="https://discord.com/invite/whUGyUygXm">
+            <a href="https://discord.com/invite/">
               <img src={discord} alt="discord-logo" className="discord" />
             </a>
           </div>
