@@ -1,0 +1,55 @@
+.aboutpage {
+  color: white;
+  padding: 200px 0 0 0;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.header img {
+  width: 150px;
+}
+
+.logo {
+  width: 2em;
+}
+
+.tae {
+  font-size: 6rem;
+}
+
+.text-cnt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.founded-cnt {
+  background: goldenrod;
+  font-size: 10px;
+  width: 200px;
+  height: 30px;
+  margin-top: -10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.founded-cnt h1 {
+  color: black;
+}
+
+.text-cnt p {
+  margin-top: 40px;
+}
+
+.pic1 {
+  width: 40vw;
+}

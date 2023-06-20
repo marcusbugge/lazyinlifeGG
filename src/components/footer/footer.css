@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-cnt {
+  background-color: var(--tae_background_primary);
+  height: 400px;
+  padding: 50px 300px;
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.staff-cnt,
+.games-cnt {
+  width: 300px;
+}
+
+.stripe-mini {
+  background-color: var(--tae_foreground_primary);
+  height: 7px;
+  width: 170px;
+}
+
+.games {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.games a {
+  padding: 5px 0;
+  text-decoration: none;
+}
+
+.social-cnt {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.icons {
+  margin-left: -150px;
+}
+
+.icons img {
+  width: 80px;
+  transition: 0.5s;
+}
+
+.icons img:hover {
+  filter: invert(61%) sepia(93%) saturate(578%) hue-rotate(359deg)
+    brightness(121%) contrast(80%);
+}
+
+.rights-cnt {
+  color: rgb(75, 75, 75);
+  text-align: center;
+  margin-left: -150px;
+  margin-top: 10px;
+}

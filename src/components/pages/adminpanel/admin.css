@@ -1,0 +1,115 @@
+.dashboard-cnt {
+  background-color: black;
+  background-image: url("../../../assets/pattern.png");
+  min-height: 100vh;
+  padding: 80px;
+}
+
+.dashboard-header {
+  font-size: 3em;
+}
+
+.dashboard {
+  width: 100%;
+  background-color: var(--tae_background_primary);
+}
+
+.players {
+  padding: 80px 100px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.player-data-cnt {
+  width: 50%;
+  display: flex;
+}
+
+.players h1 {
+  text-align: center;
+  width: 280px;
+  color: black;
+  background-color: var(--tae_foreground_primary);
+}
+
+.playerinfo {
+  padding: 10px 20px;
+  width: 500px;
+  margin: 20px 0px;
+  color: white;
+  background-color: rgb(29, 29, 29);
+  display: flex;
+}
+
+.role {
+  width: 150px;
+  color: rgb(180, 180, 180);
+}
+
+.player-cnt {
+  margin-bottom: 80px;
+}
+
+.player-edit-btn {
+  width: 50%;
+  text-align: end;
+}
+
+.edit-btn {
+  color: white;
+  background-color: rgb(49, 49, 49);
+  font-family: var(--antonfont);
+  border-style: none;
+  font-size: 15px;
+  width: 60px;
+  cursor: pointer;
+}
+
+.edit-btn:hover,
+.save-btn:hover {
+  background-color: var(--tae_foreground_primary);
+  color: black;
+}
+
+/* ANIMATIONS */
+
+@keyframes rollout {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100px;
+  }
+}
+
+.playerinfo-extend {
+  background-color: rgb(29, 29, 29);
+  animation: rollout 0.4s;
+  animation-fill-mode: forwards;
+  margin: -20px 0 0 0;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.inputextend {
+  background-color: rgb(49, 49, 49);
+  border-style: none;
+  height: 35px;
+  color: white;
+  padding: 0 0 0 10px;
+  margin-right: 10px;
+}
+
+.save-btn {
+  color: white;
+  background-color: rgb(49, 49, 49);
+  font-family: var(--antonfont);
+  border-style: none;
+  font-size: 15px;
+  width: 60px;
+  height: 35px;
+  cursor: pointer;
+  margin-left: 110px;
+}

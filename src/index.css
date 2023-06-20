@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Asap+Condensed&display=swap");
+
+:root {
+  /* FONTS */
+  --antonfont: "Anton", sans-serif;
+  --asapfont: "Asap Condensed", sans-serif;
+
+  /* COLORS */
+  --tae_background_primary: goldenrod;
+  --tae_background_accent: #202020;
+  --tae_foreground_primary: #b6b6b6;
+  --tae_foreground_primary_accent: #ffe3a0; /*   TODO Logo colors*/
+  --tae_foreground_secondary: #606060;
+  --tae_foreground_secondary_accent: #dc963c;
+}
+
+::selection {
+  background: var(--lil_foreground_primary);
+  color: black;
+}
+
+h1 {
+  font-family: var(--antonfont);
+  font-weight: 300;
+  color: white;
+}
+
+.header {
+  font-size: 9em;
+}
+
+text,
+p,
+a {
+  font-size: 16px;
+  font-family: var(--asapfont);
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+a {
+  color: white;
+  transition: 0.2s;
+  letter-spacing: 1px;
+}
+
+a:hover {
+  color: var(--tae_foreground_primary);
+}
+
+.stripe {
+  height: 40px;
+  width: 30rem;
+  background-color: var(--tae_foreground_primary);
+}
+
+.stripe-mini {
+  background-color: var(--tae_foreground_primary);
+}

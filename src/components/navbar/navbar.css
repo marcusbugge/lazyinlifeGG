@@ -1,0 +1,111 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  height: 10vh;
+  z-index: 100;
+  border-bottom: 1px solid rgb(46, 46, 46);
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.6px);
+  -webkit-backdrop-filter: blur(8.6px);
+  justify-content: space-between;
+}
+
+.navcon {
+  padding: 0 400px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar img {
+  max-width: 80px;
+}
+
+.nav-content {
+  min-width: 12vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.nav-content a {
+  text-decoration: none;
+  
+}
+.imgnav img {
+  filter: brightness(0) invert(1);
+  width: 25px;
+
+}
+.sidenav {
+  position: fixed;
+  height: 100vh;
+  width: 6rem;
+  top: 0;
+  left: 0;
+  background-color: black;
+  border-right: 1px solid rgb(46, 46, 46);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.6px);
+  -webkit-backdrop-filter: blur(8.6px);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.sidenav img {
+  filter: brightness(0) invert(1);
+  width: 25px;
+}
+
+.sidenav-content div {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(46, 46, 46);
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden; /* Hides the excess background */
+  position: relative; /* Needed for absolute positioning */
+}
+
+.sidenav-content div:hover img {
+  width: 30px;
+  transition: background-color 0.2s ease-out;
+  -webkit-box-shadow: 0px 0px 100px -22px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0px 0px 100px -22px rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 100px -22px rgba(255, 255, 255, 1);
+}
+
+.sidenav-content div:before {
+  content: ""; /* Empty content for the pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: goldenrod; /* Initial background color */
+  transform-origin: left center;
+  transform: scaleX(0); /* Initial scale to 0 */
+  transition: transform 0.3s ease-out;
+  z-index: -1; /* Behind the image */
+}
+
+.sidenav-content div:hover:before {
+  transform: scaleX(1); /* Scale up to full width on hover */
+}
+
+.sidenav-content div:before,
+.sidenav-content div:hover:before {
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3); /* Initial box shadow */
+  animation: glowing-border 1s infinite alternate;
+}
