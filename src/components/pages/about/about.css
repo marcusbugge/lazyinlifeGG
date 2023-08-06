@@ -11,9 +11,75 @@
 
 }
 
-.header img {
+.text-cnt img {
   width: 150px;
 }
+
+.pictures-cnt {
+  position: relative;
+  text-align: center;
+  height: 500px;
+  width: 40%;
+  margin-top: 50px;
+}
+
+.pictures-cnt img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.pictures-cnt img:hover {
+  transform: scale(1.1);
+}
+
+
+.content-about {
+  width: 100%;
+  display: flex;
+  padding-left: 15rem;
+  min-height: 100vh;
+  padding-top: 2rem;
+}
+
+.pictures-cnt img {
+  position: absolute;
+  transform: rotateZ(10deg);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+  border-top: 10px solid white;
+    border-left: 10px solid white;
+      border-right: 10px solid white;
+        border-bottom: 20px solid white;
+}
+
+.pic1 {
+  top: -50px;
+  right: -50px;
+  width: 400px;
+  z-index: 5;
+  transform: rotate(20deg);
+}
+
+.pic2 {
+  top: 100px;
+  left: 100px;
+  width: 500px;
+  z-index: 2;
+}
+
+.pic3 {
+  top: 200px;
+  left: 50px;
+  width: 300px;
+  z-index: 3;
+}
+
+.pic4 {
+  top: 50px;
+  left: 150px;
+  width: 400px;
+  transform: rotateZ(0deg);
+  z-index: 4;
+}
+
 
 .logo {
   width: 2em;
@@ -26,8 +92,8 @@
 .text-cnt {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
+  margin-right: 5rem;
 }
 
 .founded-cnt {
@@ -51,5 +117,4 @@
 }
 
 .pic1 {
-  width: 40vw;
 }

@@ -1,16 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./homepage.css";
 import pic1 from "../../assets/syhm.png"
 import pic2 from "../../assets/tysker.png";
 import pic3 from "../../assets/avarosa.png";
 import pic4 from "../../assets/emil.png";
 import arrow from "../../assets/arrow.png";
+import { Link } from "react-router-dom";
+import axios from "axios";
 export default function Home() {
   const [renderDetails, setRenderDetails] = useState(false);
 
   const toggleRenderDetails = () => {
     setRenderDetails(!renderDetails);
   };
+
+  const [games, setGames] = useState([]);
+
+  useEffect(() => {
+    const fetchGames = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/api/games");
+        console.log(response.data);
+        
+        setGames(response.data);
+        
+        
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+
+    fetchGames();
+  }, []);
 
   return (
     <div className="homepage-cnt">
@@ -25,31 +46,16 @@ export default function Home() {
       </div>
 
       <div className="explore-teams-cnt">
-        <div
-          className="lol-cnt"
-          onMouseOver={toggleRenderDetails}
-          onMouseLeave={toggleRenderDetails}
-        >
-          <div className="lolbg"></div>
-          <div className="game-content">
-            <h1 className="testt">LEAGUE OF LEGENDS</h1>
-          </div>
-        </div>
-
-        <div className="valorant-cnt">
-          <div className="valobg"></div>
-          <div className="game-content">
-            <h1 className="testt">VALORANT</h1>
-          </div>
-        </div>
-
-        <div className="ow-cnt">
-          <div className="owbg"></div>
-
-          <div className="game-content">
-            <h1 className="testt">OVERWATCH</h1>
-          </div>
-        </div>
+        {games.map((game) => (
+          <Link to={`/games/${game.name.toLowerCase()}`} key={game.id}>
+            <div className={`${game.picture.toLowerCase()}-cnt`}>
+              <div className={`${game.picture.toLowerCase()}bg`}></div>
+              <div className="game-content">
+                <h1 className="testt">{game.name.toUpperCase()}</h1>
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
 
       <div className="compete-cnt">

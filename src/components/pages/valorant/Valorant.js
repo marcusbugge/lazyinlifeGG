@@ -2,6 +2,7 @@ import React, { Component, useEffect, useState } from "react";
 import Header from "./Header";
 import "./valorant.css";
 import Players from "./Players";
+import Login from "../login/Login";
 
 export default function League() {
   const [players, setPlayers] = useState([]);
@@ -23,9 +24,7 @@ export default function League() {
     <div className="content-lol">
       <Header />
 
-      <div className="data">
-        <Players playerss={players} />
-      </div>
+      <Login />
     </div>
   );
 }

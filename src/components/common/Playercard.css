@@ -1,0 +1,76 @@
+
+
+.card {
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.6px);
+  -webkit-backdrop-filter: blur(8.6px);
+  border: 1px solid rgb(32, 32, 32);
+  width: 15rem;
+  height: 25rem;
+  border-radius: 20px;
+  margin: 0px 5px;
+   margin-bottom: 10px; /* Add margin between the stacked cards */
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+}
+
+.cards {
+  display: flex;
+}
+
+.card img {
+  width: 80px;
+}
+
+.cardimg {
+    height: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.playertext {
+    height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 5rem;
+}
+
+.card:hover {
+    background: rgba(77, 77, 77, 0.2);
+      transition: 0.2s ease-in-out;
+  -webkit-box-shadow: 0px 0px 100px -22px rgba(255, 255, 255, 0.2);
+  -moz-box-shadow: 0px 0px 100px -22px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 100px -22px rgba(255, 255, 255, 0.2);
+}
+
+.playertext div {
+
+}
+
+.playertext div h1 {
+  margin-bottom: 5px;
+}
+
+.playertext p {
+  color: rgb(138, 138, 138);
+}
+
+.playertext h1 {
+  color: var(--tae_foreground_primary);
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+
+.cards-cnt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}

@@ -71,6 +71,7 @@ export class Footer extends Component {
         <div className="rights-cnt">
           <p>Lazy In Life &copy; 2023 All Rights Reserved</p>
         </div>
+        
       </div>
     );
   }

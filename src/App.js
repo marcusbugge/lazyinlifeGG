@@ -48,11 +48,8 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/games/valorant" element={<Valorant />} is />
               <Route path="/login" element={<Login />} />
-              {isLoggedIn ? (
-                <Route path="/admin-dashboard" element={<Dashboard />} />
-              ) : (
-                ""
-              )}
+              <Route path="/dashboard" element={<Dashboard />} />
+          
 
               <Route path="*" element={<NotFound />} />
             </Routes>

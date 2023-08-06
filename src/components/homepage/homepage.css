@@ -62,7 +62,7 @@
 }
 
 .lol-cnt,
-.valorant-cnt,
+.valo-cnt,
 .ow-cnt {
   height: 40rem;
   min-width: 25rem;
@@ -76,14 +76,14 @@
 }
 
 .lol-cnt:hover,
-.valorant-cnt:hover,
+.valo-cnt:hover,
 .ow-cnt:hover  {
   margin-top: -5px;
   transition: 0.2s ease-in-out;
 }
 
 .lol-cnt:hover .lolbg,
-.valorant-cnt:hover .valobg,
+.valo-cnt:hover .valobg,
 .ow-cnt:hover .owbg {
   transition: 0.2s ease-in-out;
   opacity: 0.7;
@@ -165,17 +165,7 @@
   margin-left: 700px;
 }
 
-.pictures-cnt {
-  margin-top: 50px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: flex-start;
-}
 
-.pictures-cnt img {
-  width: 100%;
-}
 
 .glowborder {
   position: absolute;

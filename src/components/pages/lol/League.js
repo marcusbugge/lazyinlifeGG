@@ -1,4 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
+import Playercard from "../../common/Playercard";
 import Countdown from "./Countdown";
 import Header from "./Header";
 import "./lol.css";
@@ -23,25 +24,23 @@ export default function League() {
       <Header />
 
       <div className="data">
-        <div className="main-team-cnt">
-          <div className="main-team-header">
-            <h1>NORTHERN LEAGUE CHAMPIONSHIP</h1>
-          </div>
-        </div>
-        <Players playerss={players} />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className="main-team-cnt">
-          <div className="main-team-header">
-            <h1>GOODGAME-LIGAEN</h1>
-          </div>
-        </div>
-        <Players playerss={players} />
+        <div className="team-desc-cnt">
+          <h1 className="title-team">NLC</h1>
         
+        </div>
+
+        <div className="main-team-cnt">
+          <div className="cards-cnt">
+            <Playercard />
+          </div>
+        </div>
+
+        <h1 className="title-team">GGL</h1>
+        <div className="main-team-cnt">
+          <div className="cards-cnt">
+            <Playercard />
+          </div>
+        </div>
       </div>
     </div>
   );

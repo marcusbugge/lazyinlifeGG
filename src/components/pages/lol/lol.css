@@ -1,22 +1,64 @@
 /* CONTENT */
 
 .content-lol {
-  background-image: url(../../../assets/Rectangle.png);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+ 
 }
 
 .leaguebanner {
   background-image: url("../../../assets/Rectangle.png");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 75vh;
+  height: 60vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+   border-radius: 3rem;
+     -webkit-box-shadow: 0px 0px 100px -22px rgba(255, 255, 255, 0.2);
+  -moz-box-shadow: 0px 0px 100px -22px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 100px -22px rgba(255, 255, 255, 0.2);
+  
 }
 
 .leaguebanner h1 {
   font-size: 7em;
+}
+
+.head {
+  display: flex;
+ 
+}
+
+
+
+.title-team {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  background-color: goldenrod;
+  width: 7rem;
+  height: 3.5rem;
+
+}
+.strekdiv {
+  position: absolute;
+  background-color: goldenrod;
+  height: 40px;
+  width: 80px;
+  margin-top: 430px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-family: var(--asapfont);
+  font-size: .6rem;
 }
 
 /* START OF COUNTDOWN */
@@ -25,11 +67,41 @@
 
 /* PLAYER PRESENTATION */
 
+.nlc-text {
+     -webkit-text-stroke: rgb(130, 130, 130) 1px;
+  color: transparent;
+  font-size: 8em;
+  margin-top: 10rem;
+  position: absolute;
+  z-index: -10;
+}
+
 .main-team-cnt {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  margin: 30px 0px 50px 120px;
+  margin-bottom: 150px;
+}
+
+
+
+.data {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.team-desc-cnt {
+  display: flex;
+  align-items: center;
+    margin-bottom: 2rem;
+}
+
+.team-desc-cnt p {
+  color: rgb(130, 130, 130);
+  margin-left: 1rem;
 }
 
 .main-team-header {
@@ -69,51 +141,7 @@
   display: flex;
 }
 
-.data {
-  padding: 100px 0px;
-  background-color: black;
-}
 
-.cards-cnt {
-}
-
-.card {
-  display: flex;
-  margin: 50px;
-}
-
-.cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap-reverse;
-}
-
-.card img {
-  width: 150px;
-  background-color: rgb(37, 37, 37);
-}
-
-.playertext {
-  margin-left: 20px;
-}
-
-.playertext div {
-  margin: 20px 0px;
-}
-
-.playertext div h1 {
-  margin-bottom: 5px;
-}
-
-.playertext p {
-  color: rgb(138, 138, 138);
-}
-
-.playertext h1 {
-  color: var(--tae_foreground_primary);
-  font-size: 1.5rem;
-  letter-spacing: 1px;
-}
 
 /* END OF PLAYERPRESENTATION */
 

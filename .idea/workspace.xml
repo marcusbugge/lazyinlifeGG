@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="de6ec42e-d742-420f-ae13-c8aaf34e8193" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/homepage/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/homepage/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/homepage/homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/homepage/homepage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navbar/Sidenav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navbar/Sidenav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/about/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/about/About.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/about/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/about/about.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/lol/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/lol/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/lol/League.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/lol/League.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/lol/lol.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/lol/lol.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/valorant/Valorant.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/valorant/Valorant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2T1N98JwEOxR81UkhdPzrPXl0QC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/marcusbugge/Desktop/LILLIL"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="de6ec42e-d742-420f-ae13-c8aaf34e8193" name="Changes" comment="" />
+      <created>1690206473989</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1690206473989</updated>
+    </task>
+    <servers />
+  </component>
+</project>

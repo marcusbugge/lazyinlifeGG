@@ -9,8 +9,6 @@ import logo from "../../assets/logo.png";
 import login from "../../assets/login.png";
 
 export default function Navbar() {
-  
-
   return (
     <div className="navbar">
       <div className="navcon">
@@ -20,12 +18,17 @@ export default function Navbar() {
               <img src={logo} alt="logo"></img>
             </div>
           </Link>
-          <Link to="/games/league-of-legends">Teams</Link>
-
-          <Link to="/about">About</Link>
+          <div className="tag-style">
+            <Link to="/">Home</Link>
+          </div>
+          <div className="tag-style">
+            <Link to="/about">About</Link>
+          </div>
         </div>
         <div className="imgnav">
-          <img className="login-img" src={login} alt="loign" />
+          <div className="tag-style">
+            <img className="login-img" src={login} alt="loign" />
+          </div>
         </div>
       </div>
     </div>

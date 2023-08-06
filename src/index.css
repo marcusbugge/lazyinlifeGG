@@ -15,7 +15,7 @@
 }
 
 ::selection {
-  background: var(--lil_foreground_primary);
+  background: white;
   color: black;
 }
 
@@ -56,4 +56,21 @@ a:hover {
 
 .stripe-mini {
   background-color: var(--tae_foreground_primary);
+}
+
+.tag-style {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 20px;
+  margin-left: 1rem;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.tag-style:hover {
+  background-color: black;
+  border: 1px solid rgb(45, 45, 45);
+  border-radius: 0.5rem;
 }
