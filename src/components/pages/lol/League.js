@@ -4,6 +4,8 @@ import Countdown from "./Countdown";
 import Header from "./Header";
 import "./lol.css";
 import Players from "./Players";
+import orange from "../../../assets/orange.png";
+import Game from "./Game";
 
 export default function League() {
   const [players, setPlayers] = useState([]);
@@ -21,27 +23,24 @@ export default function League() {
 
   return (
     <div className="content-lol">
-      <Header />
-
-      <div className="data">
-        <div className="team-desc-cnt">
-          <h1 className="title-team">NLC</h1>
-        
-        </div>
-
-        <div className="main-team-cnt">
-          <div className="cards-cnt">
-            <Playercard />
-          </div>
-        </div>
-
-        <h1 className="title-team">GGL</h1>
-        <div className="main-team-cnt">
-          <div className="cards-cnt">
-            <Playercard />
-          </div>
-        </div>
-      </div>
+      <Game
+        gameTitle="League of Legends"
+        journeyUrl="https://www.your-journey-url.com"
+        backgroundImage={require("../../../assets/Rectangle.png")}
+        leagues={[
+          {
+            name: "GOODGAME-LIGAEN",
+            url: "https://www.gamer.no/turneringer/good-game-ligaen-league-of-legends-hosten-2023/11710/tabeller",
+            teamName: "OUR ROSTER",
+          },
+          {
+            name: "NLC",
+            url: "https://www.nlc.gg/",
+            teamName: "OUR ROSTER",
+          },
+        ]}
+        twitchUrl="https://www.twitch.tv/lazyinlifetv"
+      />
     </div>
   );
 }

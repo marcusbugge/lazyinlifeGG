@@ -3,18 +3,36 @@
   width: 100%;
   height: 10vh;
   z-index: 100;
-  border-bottom: 1px solid rgb(46, 46, 46);
   display: flex;
   align-items: center;
-  background: rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8.6px);
-  -webkit-backdrop-filter: blur(8.6px);
   justify-content: space-between;
+  
+  
+
+  /* Non-scrolling state styling */
+
+  /* Adjust this as needed */
+
+  /* Adjust this as needed */
+
+  /* Transition to animate the changes */
+  transition: 0.5s ease-in-out, border-bottom 0.5s ease-in-out;
 }
 
+.navbar.scrolling {
+  /* Scrolling state styling */
+  background: rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgb(46, 46, 46);
+  backdrop-filter: blur(8.6px);
+    -webkit-backdrop-filter: blur(8.6px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+}
+
+/* ... rest of the CSS remains the same ... */
+
 .navcon {
-  padding: 0 400px;
+  padding: 0 10rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -22,11 +40,12 @@
 }
 
 .navbar img {
-  max-width: 80px;
+  max-width: 70px;
+  margin-right: 20px;
 }
 
 .nav-content {
-  min-width: 12vw;
+  min-width: 10vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,6 +54,8 @@
 
 .nav-content a {
   text-decoration: none;
+  font-weight: 600;
+  font-size: 0.8rem;
   
 }
 .imgnav img {
@@ -48,6 +69,7 @@
   width: 6rem;
   top: 0;
   left: 0;
+  z-index: 100;
   background-color: black;
   border-right: 1px solid rgb(46, 46, 46);
   display: flex;

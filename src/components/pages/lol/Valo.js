@@ -1,19 +1,19 @@
 import React, { Component, useEffect, useState } from "react";
+import Playercard from "../../common/Playercard";
+import Countdown from "./Countdown";
 import Header from "./Header";
-import "./valorant.css";
+import "./lol.css";
 import Players from "./Players";
-import Login from "../login/Login";
-import Game from "../lol/Game";
+import orange from "../../../assets/orange.png";
+import Game from "./Game";
 
-export default function Valorant() {
+export default function Valo() {
   const [players, setPlayers] = useState([]);
   useEffect(() => {
     getAllPlayers();
 
     async function getAllPlayers() {
-      const response = await fetch(
-        "/api/player/getplayersbygame?game=valorant"
-      );
+      const response = await fetch("/api/player/getplayersbygame?game=lol");
       const data = await response.json();
 
       console.log(data);
@@ -26,10 +26,11 @@ export default function Valorant() {
       <Game
         gameTitle="Valorant"
         journeyUrl="https://www.your-journey-url.com"
+        backgroundImage={require("../../../assets/Valorant.png")}
         leagues={[
           {
             name: "GOODGAME-LIGAEN",
-            url: "https://www.gamer.no/turneringer/good-game-ligaen-valorant-hosten-2023/11710/tabeller",
+            url: "https://www.gamer.no/turneringer/good-game-ligaen-league-of-legends-hosten-2023/11710/tabeller",
             teamName: "OUR ROSTER",
           },
         ]}

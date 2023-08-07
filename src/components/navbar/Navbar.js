@@ -1,16 +1,34 @@
-import { render } from "@testing-library/react";
-import { React, Component, useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./navbar.css";
-import discord from "../../assets/discord.png";
-import twitter from "../../assets/twitter.png";
-import twitch from "../../assets/twitch.png";
 import logo from "../../assets/logo.png";
 import login from "../../assets/login.png";
 
 export default function Navbar() {
+  // State to determine if we're scrolling or not
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    // Event handler to check scroll position
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
+
+    // Attach event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="navbar">
+    <div className={`navbar ${scrolling ? "scrolling" : ""}`}>
       <div className="navcon">
         <div className="nav-content">
           <Link to="/">
@@ -19,15 +37,15 @@ export default function Navbar() {
             </div>
           </Link>
           <div className="tag-style">
-            <Link to="/">Home</Link>
+            <Link to="/">HOME</Link>
           </div>
           <div className="tag-style">
-            <Link to="/about">About</Link>
+            <Link to="/about">ABOUT</Link>
           </div>
         </div>
         <div className="imgnav">
           <div className="tag-style">
-            <img className="login-img" src={login} alt="loign" />
+            <img className="login-img" src={login} alt="login" />
           </div>
         </div>
       </div>

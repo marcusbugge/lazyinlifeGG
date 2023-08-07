@@ -14,6 +14,7 @@ import Dashboard from "./components/pages/adminpanel/Dashboard";
 import ProtectedRoute from "./components/navbar/ProtectedRoute";
 import Footer from "./components/footer/Footer";
 import Sidenav from "./components/navbar/Sidenav";
+import Valo from "./components/pages/lol/Valo";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -46,7 +47,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/games/league-of-legends" element={<League />} />
               <Route path="/about" element={<About />} />
-              <Route path="/games/valorant" element={<Valorant />} is />
+              <Route path="/games/valorant" element={<Valo />} />
               <Route path="/login" element={<Login />} />
               <Route path="/dashboard" element={<Dashboard />} />
           
