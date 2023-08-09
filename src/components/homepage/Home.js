@@ -76,16 +76,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      <iframe
-        width="1157"
-        height="651"
-        src="https://www.youtube.com/embed/uo9PbJ8CwFU?version=3&autoplay=1&controls=0&&showinfo=0&loop=1"
-        title="Immortal Journey Cinematic Trailer - League of Legends"
-        frameborder="0"
-        allow="autoplay; picture-in-picture"
-      ></iframe>
-
       <div className="explore-teams-cnt">
         {games.map((game) => (
           <Link
