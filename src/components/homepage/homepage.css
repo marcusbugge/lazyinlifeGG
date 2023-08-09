@@ -47,6 +47,7 @@
 
 .over-h1 {
   font-size: 1rem;
+  font-weight: 600;
   color: goldenrod;
 }
 
@@ -59,6 +60,14 @@
   display: flex;
   justify-content: center;
   margin-top: 150px;
+}
+
+.homepage-cnt svg {
+  position: absolute;
+  z-index: -100;
+  filter: blur(70px) saturate(0);
+  opacity: 0.55;
+  transform: rotate(180deg);
 }
 
 .lol-cnt,
@@ -77,7 +86,7 @@
 
 .lol-cnt:hover,
 .valo-cnt:hover,
-.ow-cnt:hover  {
+.ow-cnt:hover {
   margin-top: -5px;
   transition: 0.2s ease-in-out;
 }
@@ -131,7 +140,6 @@
   height: 3rem;
   border-radius: 2rem;
   font-weight: 600;
-
 }
 
 .game-explore-cnt p {
@@ -165,15 +173,13 @@
   margin-left: 700px;
 }
 
-
-
 .glowborder {
   position: absolute;
   top: 0;
   left: 0;
   width: 50px;
   height: 300px;
-    -webkit-box-shadow: 0px 0px 200px -22px rgba(255, 255, 255, 0.7);
+  -webkit-box-shadow: 0px 0px 200px -22px rgba(255, 255, 255, 0.7);
   -moz-box-shadow: 0px 0px 200px -22px rgba(255, 255, 255, 0.7);
   box-shadow: 0px 0px 200px -22px rgba(255, 255, 255, 0.7);
   animation: glowborder ease-in-out 20s;
@@ -186,7 +192,7 @@
   margin-right: -220px;
   width: 200px;
   height: 200px;
-    -webkit-box-shadow: 0px 0px 200px -22px rgba(255, 255, 255, 0.7);
+  -webkit-box-shadow: 0px 0px 200px -22px rgba(255, 255, 255, 0.7);
   -moz-box-shadow: 0px 0px 200px -22px rgba(255, 255, 255, 0.7);
   box-shadow: 0px 0px 200px -22px rgba(255, 255, 255, 0.7);
   animation: glowborderright ease-in-out 20s;

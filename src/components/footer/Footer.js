@@ -31,15 +31,7 @@ export class Footer extends Component {
             <div className="games">
               <Link to="/games/valorant">News</Link>
               <Link to="/aboutus">About us</Link>
-              <Link to="/games/csgo">Staff</Link>
-              {localStorage.getItem("isAuthenticated") ? (
-                <Link to="/" onClick={logout}>
-                  {" "}
-                  Logout
-                </Link>
-              ) : (
-        ""
-              )}
+              <Link to="/login">Login</Link>
             </div>
           </div>
           <div className="games-cnt">
@@ -71,7 +63,6 @@ export class Footer extends Component {
         <div className="rights-cnt">
           <p>Lazy In Life &copy; 2023 All Rights Reserved</p>
         </div>
-        
       </div>
     );
   }

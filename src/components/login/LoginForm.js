@@ -1,73 +1,98 @@
-import React, { useState } from "react";
-import Login from "./Login";
-import axios from "axios";
-import { createBrowserHistory } from "history";
-import isOnline from "../../App";
-import { BrowserRouter, Link } from "react-router-dom";
-import Loginconfirmation from "./Loginconfirmation";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
+import { auth } from "../../firebase-config";
+import { setUser, clearUser } from "../../redux/user/UserActions"; // Adjust the path as needed
 
-export const history = createBrowserHistory();
+function LoginForm() {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.user);
+  let history = useNavigate();
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
 
-export default function LoginForm() {
-  const [, updateState] = React.useState();
-  const forceUpdate = React.useCallback(() => updateState({}), []);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        dispatch(setUser(currentUser));
+      } else {
+        dispatch(clearUser());
+      }
+    });
 
-  const [user, setUser] = useState();
-  let username;
-  let password;
+    return () => unsubscribe(); // Return the unsubscribe function to clean up the listener on unmount
+  }, [dispatch]);
 
-  const [render, setRender] = useState(true);
+  const login = async (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        loginEmail,
+        loginPassword
+      );
+      const user = userCredential.user;
+      dispatch(setUser(user));
+      console.log(user); // Check if user data is logged correctly
+      history("/dashboard");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
-  const headers = { "header-name": "value" };
-  const config = { headers };
-
-  async function handleLogin(e) {
-    e.preventDefault();
-    username = e.target.email.value;
-    password = e.target.password.value;
-
-    const user = {
-      Username: username,
-      Password: password,
-    };
-
-    axios
-      .post("/api/user/login", user, config)
-      .then((response) => {
-        console.log(response.status);
-        console.log(response.data);
-        setUser(response.data);
-        localStorage.setItem("isAuthenticated", response.data);
-
-        setRender(true);
-
-        window.location.reload(true);
-      })
-      .catch((e) => console.log("something went wrong :(", e));
-  }
+  const logout = async () => {
+    await signOut(auth);
+    dispatch(clearUser());
+  };
 
   return (
     <div className="loginform">
-      <h1>LOGIN</h1>
-      <form onSubmit={handleLogin}>
-        {localStorage.getItem("isAuthenticated") ? <Loginconfirmation /> : ""}
-        <div className="label-cnt">
-          <label>
-            <p>Username</p>
-            <input className="input" name="email" type="text" />
-          </label>
-          <label>
-            <p>Password</p>
-            <input className="input" name="password" type="password" />
-          </label>
-        </div>
-
-        <div className="buttons">
-          <button type="submit">
-            <p>Login</p>
+      <form onSubmit={login}>
+        <h1>👋 Hello! </h1>
+        <div className="inputs">
+          <input
+            placeholder="Email..."
+            onChange={(event) => {
+              setLoginEmail(event.target.value);
+            }}
+          />
+          <input
+            type="password" // Mask the password
+            placeholder="Password..."
+            onChange={(event) => {
+              setLoginPassword(event.target.value);
+            }}
+          />
+          <button type="submit" className="loginbtn">
+            Sign in
           </button>
         </div>
       </form>
+
+      {user?.email ? (
+        <div>
+          <h4>User Logged In:</h4>
+          <h1>Email: {user.email}</h1>
+          <h1>UID: {user.uid}</h1>
+          {/* Display any other user data you want */}
+        </div>
+      ) : (
+        <p>Not logged in</p>
+      )}
+
+      {user?.email && (
+        <button onClick={logout} className="loginbtn">
+          Sign Out
+        </button>
+      )}
     </div>
   );
 }
+
+export default LoginForm;

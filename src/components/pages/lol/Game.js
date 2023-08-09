@@ -50,7 +50,7 @@ export default function Game({
         backgroundImage={backgroundImage}
       />{" "}
       {/* Pass backgroundImage here */}
-      <div className="data">
+      <div className="data" data-aos="fade-up">
         {leagues.map((league, index) => (
           <TeamSection
             key={index}

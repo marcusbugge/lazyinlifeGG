@@ -6,10 +6,13 @@ import "./lol.css";
 import Players from "./Players";
 import orange from "../../../assets/orange.png";
 import Game from "./Game";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function League() {
   const [players, setPlayers] = useState([]);
   useEffect(() => {
+    AOS.init();
     getAllPlayers();
 
     async function getAllPlayers() {
@@ -22,7 +25,7 @@ export default function League() {
   }, []);
 
   return (
-    <div className="content-lol">
+    <div className="content-lol" data-aos="fade-left">
       <Game
         gameTitle="League of Legends"
         journeyUrl="https://www.your-journey-url.com"
