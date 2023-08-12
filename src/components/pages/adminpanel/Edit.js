@@ -5,9 +5,7 @@ export default function Edit(props) {
   function postToDB(e, data) {
     e.preventDefault();
 
-    let url = props.isGame
-      ? "/api/game/change/" + data.Id
-      : "/api/player/change/" + data.Id;
+    let url = "http://localhost:8080/api/games/1/players/1";
 
     axios
       .put(url, data)
@@ -16,26 +14,18 @@ export default function Edit(props) {
       })
       .catch((err) => console.log(err));
   }
-
   const handleInfoChange = (e) => {
     e.preventDefault();
 
     if (props.isGame) {
-      const name = e.target.name.value;
-      const pictureURL = e.target.pictureURL.value;
-      postToDB(e, {
-        Id: props.gameId, // Assuming games have an ID
-        Name: name,
-        PictureURL: pictureURL,
-      });
+      // Handle game update logic here
     } else {
       const gamertag = e.target.gamertag.value;
       const role = e.target.role.value;
       postToDB(e, {
-        Id: props.index + 1,
-        Gamertag: gamertag,
-        Game: props.game,
-        Role: role,
+        id: props.playerId, // Assuming players have an ID
+        name: gamertag,
+        twitter: role,
       });
     }
   };

@@ -3,24 +3,52 @@ import "./homepage.css";
 import pic1 from "../../assets/syhm.png";
 import pic2 from "../../assets/tysker.png";
 import pic3 from "../../assets/avarosa.png";
-import pic4 from "../../assets/emil.png";
+import avarosa from "../../assets/avarosafront.png";
 import arrow from "../../assets/arrow.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useDispatch, useSelector } from "react-redux";
+import { setGames } from "../../redux/game/gameSlice"; // Import the setGames action
+
+function useTypingEffect(text, typingSpeed) {
+  const [displayedText, setDisplayedText] = useState("");
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (index < text.length) {
+        setDisplayedText((prevText) => prevText + text[index]);
+        setIndex((prevIndex) => prevIndex + 1);
+      } else {
+        clearInterval(interval);
+      }
+    }, typingSpeed);
+
+    return () => clearInterval(interval);
+  }, [index, text, typingSpeed]);
+
+  return displayedText;
+}
+
 export default function Home() {
   const [renderDetails, setRenderDetails] = useState(false);
+
+  const headerText = "EMBRACE VICTORY WITH LAZY IN LIFE";
+  const typingSpeed = 80; // Speed of typing in milliseconds
+  const displayedHeaderText = useTypingEffect(headerText, typingSpeed);
 
   const toggleRenderDetails = () => {
     setRenderDetails(!renderDetails);
   };
 
-  const [games, setGames] = useState([]);
-
   useEffect(() => {
     AOS.init();
   }, []);
+
+  const dispatch = useDispatch();
+  const games = useSelector((state) => state.games); // Access games from Redux store
 
   useEffect(() => {
     const fetchGames = async () => {
@@ -28,14 +56,17 @@ export default function Home() {
         const response = await axios.get("http://localhost:8080/api/games");
         console.log(response.data);
 
-        setGames(response.data);
+        dispatch(setGames(response.data)); // Dispatch the setGames action to update the Redux store
+
+        // Store the games in localStorage
+        localStorage.setItem("games", JSON.stringify(response.data));
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
     };
 
     fetchGames();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="homepage-cnt">
@@ -65,25 +96,41 @@ export default function Home() {
           </defs>
         </svg>
         <div className="home-header">
-          <p className="over-h1" data-aos="fade-up">
-            NORWEGIAN ESPORTS TEAM
-          </p>
+          <div className="box-header">
+            <div className="header-text-cnt">
+              <h1 className="home-h1">
+                {displayedHeaderText}
+                <span>.</span>
+              </h1>
 
-          <div className="teamname-cnt">
-            <h1 className="under-h1" data-aos="fade-up">
-              LAZY IN LIFE
-            </h1>
+              <p>
+                Welcome to Lazy in Life, a team of dedicated and skilled gamers
+                united by passion. Explore our journey, achievements, and
+                upcoming challenges. Join us as we strive for excellence in
+                esports, turning raw talent into championship victories. Your
+                adventure in the competitive gaming world starts here!
+              </p>
+            </div>
+
+            <img src={avarosa} alt="avarosa" />
           </div>
         </div>
       </div>
+
+      <div className="games-header">
+        <h1>
+          OUR GAMES<span>.</span>
+        </h1>
+      </div>
+
       <div className="explore-teams-cnt">
         {games.map((game) => (
           <Link
             to={`/games/${game.name.toLowerCase().replace(/ /g, "-")}`}
             key={game.id}
           >
-            <div className={`${game.picture.toLowerCase()}-cnt`}>
-              <div className={`${game.picture.toLowerCase()}bg`}></div>
+            <div className={`${game.backgroundUrl}-cnt`}>
+              <div className={`${game.backgroundUrl}bg`}></div>
               <div className="game-content">
                 <h1 className="testt">{game.name.toUpperCase()}</h1>
               </div>
@@ -99,10 +146,10 @@ export default function Home() {
         <h1 data-aos="fade-left">COMPETE WITH LIL</h1>
 
         <div className="apply-cnt">
-          <div className="apply-btn">
+          <button className="apply-btn">
             <p>APPLY NOW</p>
             <img src={arrow} alt="" />
-          </div>
+          </button>
         </div>
       </div>
 

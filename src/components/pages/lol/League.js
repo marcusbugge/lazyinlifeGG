@@ -1,27 +1,24 @@
-import React, { Component, useEffect, useState } from "react";
-import Playercard from "../../common/Playercard";
-import Countdown from "./Countdown";
-import Header from "./Header";
-import "./lol.css";
-import Players from "./Players";
-import orange from "../../../assets/orange.png";
+import React, { useEffect, useState } from "react";
 import Game from "./Game";
-import AOS from "aos";
 import "aos/dist/aos.css";
+import AOS from "aos";
+import "./lol.css";
+import axios from "axios";
 
 export default function League() {
   const [players, setPlayers] = useState([]);
   useEffect(() => {
     AOS.init();
-    getAllPlayers();
-
-    async function getAllPlayers() {
-      const response = await fetch("/api/player/getplayersbygame?game=lol");
-      const data = await response.json();
-
-      console.log(data);
-      setPlayers(data);
-    }
+    // Fetch players for League of Legends (replace URL and gameId as needed)
+    axios
+      .get(`http://localhost:8080/api/games/1/players`)
+      .then((response) => {
+        console.log("responseleague", response.data);
+        setPlayers(response.data);
+      })
+      .catch((error) => {
+        console.error("An error occurred while fetching players:", error);
+      });
   }, []);
 
   return (
@@ -43,6 +40,7 @@ export default function League() {
           },
         ]}
         twitchUrl="https://www.twitch.tv/lazyinlifetv"
+        players={players}
       />
     </div>
   );

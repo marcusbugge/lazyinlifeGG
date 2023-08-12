@@ -1,9 +1,10 @@
-// store.js
 import { createStore, combineReducers } from "redux";
 import UserReducer from "./redux/user/userReducer";
+import gameSlice from "./redux/game/gameSlice";
+
 const rootReducer = combineReducers({
   user: UserReducer,
-  // other reducers...
+  games: gameSlice,
 });
 
 const store = createStore(rootReducer);

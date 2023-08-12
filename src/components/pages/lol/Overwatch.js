@@ -5,7 +5,7 @@ import AOS from "aos";
 import "./lol.css";
 import axios from "axios";
 
-export default function Valorant() {
+export default function Overwatch() {
   const [players, setPlayers] = useState([]);
 
   console.log("kys");
@@ -34,9 +34,9 @@ export default function Valorant() {
   return (
     <div className="content-lol" data-aos="fade-left">
       <Game
-        gameTitle="Valorant"
+        gameTitle="Overwatch"
         journeyUrl="https://www.your-journey-url.com"
-        backgroundImage={require("../../../assets/Valorant.png")}
+        backgroundImage={require("../../../assets/owbg.png")}
         leagues={[
           {
             name: "GOODGAME-LIGAEN",

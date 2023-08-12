@@ -9,13 +9,13 @@ function PlayerSection({ title, players, loaded, show, extendCards, game }) {
   return (
     <div className="player-cnt">
       <h1>{title}</h1>
-      {loaded
+      {loaded && Array.isArray(players)
         ? players.map((player, index) => (
             <div key={index}>
               <div className="playerinfo">
                 <div className="player-data-cnt">
-                  <p className="role">{player.role}</p>
-                  <p className="player">{player.gamertag}</p>
+                  <p className="role">{player.twitter}</p>
+                  <p className="player">{player.name}</p>
                 </div>
                 <div className="player-edit-btn">
                   <button
@@ -36,87 +36,45 @@ function PlayerSection({ title, players, loaded, show, extendCards, game }) {
   );
 }
 
-function GameSection({ title, games, loaded, show, extendCards, game }) {
-  return (
-    <div className="player-cnt">
-      <h1>ACTIVE GAMES</h1>
-      {loaded
-        ? games.map((game, index) => (
-            <div key={index}>
-              <div className="playerinfo">
-                <div className="player-data-cnt">
-                  <p className="role">{game.name}</p>
-                  <p className="player">{game.picture}</p>
-                </div>
-                <div className="player-edit-btn">
-                  <button
-                    onClick={() => extendCards(game.name, index)} // Pass game.name instead of game
-                    className="edit-btn"
-                  >
-                    EDIT
-                  </button>
-                </div>
-              </div>
-              {show.game === game.name && show.index === index ? ( // Compare with game.name
-                <Edit index={index} game={game.name} player={game} />
-              ) : null}
-            </div>
-          ))
-        : null}
-    </div>
-  );
-}
-
-const DUMMY_LOL_PLAYERS = [
-  { role: "Mid", gamertag: "Player1", game: "lol" },
-  { role: "Top", gamertag: "Player2", game: "lol" },
-  { role: "Jungle", gamertag: "Player3", game: "lol" },
-  { role: "ADC", gamertag: "Player4", game: "lol" },
-  { role: "Support", gamertag: "Player5", game: "lol" },
-];
-
-const DUMMY_VAL_PLAYERS = [
-  { role: "Sniper", gamertag: "PlayerA", game: "valorant" },
-  { role: "Duelist", gamertag: "PlayerB", game: "valorant" },
-  { role: "Controller", gamertag: "PlayerC", game: "valorant" },
-  { role: "Initiator", gamertag: "PlayerD", game: "valorant" },
-  { role: "Sentinel", gamertag: "PlayerE", game: "valorant" },
-];
-
-const DUMMY_OVW_PLAYERS = [
-  { role: "Tank", gamertag: "Tanker", game: "overwatch" },
-  { role: "Support", gamertag: "Healer", game: "overwatch" },
-  { role: "DPS", gamertag: "Damage", game: "overwatch" },
-  { role: "Tank", gamertag: "Tanker2", game: "overwatch" },
-  { role: "Support", gamertag: "Healer2", game: "overwatch" },
-];
-
 export default function Dashboard() {
   const [loaded, setLoaded] = useState(false);
-  const [lolplayers, setLolplayers] = useState([]);
-  const [valplayers, setValplayers] = useState([]);
-  const [ovwplayers, setOvwplayers] = useState([]);
-  const [editGame, setEditGame] = useState(null);
+  const [playersByGame, setPlayersByGame] = useState({});
   const [show, setShow] = useState({ game: null, index: -1 });
 
   const extendCards = (game, index) => {
     setShow({ game, index });
   };
 
+  const gameIds = {
+    "LEAGUE OF LEGENDS": 1,
+    VALORANT: 2,
+    OVERWATCH: 3,
+  };
+
   useEffect(() => {
-    async function getAllPlayers(game, setPlayers) {
-      const response = await fetch(`/api/players?game=${game}`);
-      const data = await response.json();
-      AOS.init();
+    async function getAllPlayers() {
+      const games = ["LEAGUE OF LEGENDS", "VALORANT", "OVERWATCH"];
+      let fetchedPlayersByGame = {};
+
+      for (const game of games) {
+        // Use the gameIds mapping to get the game ID for the current game name
+        const gameId = gameIds[game];
+
+        // Use the game ID in the URL
+        const response = await fetch(
+          `http://localhost:8080/api/games/${gameId}/players`
+        );
+        const data = await response.json();
+
+        console.log("data", data);
+        fetchedPlayersByGame[game] = data;
+      }
+
+      setPlayersByGame(fetchedPlayersByGame);
+      setLoaded(true);
     }
 
-    setLolplayers(DUMMY_LOL_PLAYERS);
-    setValplayers(DUMMY_VAL_PLAYERS);
-    setOvwplayers(DUMMY_OVW_PLAYERS);
-
-    getAllPlayers("lol", setLolplayers);
-    setLoaded(true);
-    getAllPlayers("valorant", setValplayers);
+    getAllPlayers();
   }, []);
 
   return (
@@ -127,31 +85,19 @@ export default function Dashboard() {
         </div>
         <div className="dashboard">
           <div className="players">
-            <PlayerSection
-              data-aos="fade-up"
-              game="LEAGUE OF LEGENDS"
-              title="LEAGUE OF LEGENDS"
-              players={lolplayers}
-              loaded={loaded}
-              show={show}
-              extendCards={extendCards}
-            />
-            <PlayerSection
-              game="VALORANT"
-              title="VALORANT"
-              players={valplayers}
-              loaded={loaded}
-              show={show}
-              extendCards={extendCards}
-            />
-            <PlayerSection
-              game="OVERWATCH"
-              title="OVERWATCH"
-              players={ovwplayers}
-              loaded={loaded}
-              show={show}
-              extendCards={extendCards}
-            />
+            {loaded &&
+              Object.keys(playersByGame).map((game, index) => (
+                <PlayerSection
+                  key={game}
+                  data-aos="fade-up"
+                  game={game}
+                  title={game}
+                  players={playersByGame[game]}
+                  loaded={loaded}
+                  show={show}
+                  extendCards={extendCards}
+                />
+              ))}
           </div>
         </div>
       </div>

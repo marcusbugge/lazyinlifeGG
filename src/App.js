@@ -4,7 +4,7 @@ import { auth } from "./firebase-config";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./components/homepage/Home";
 import League from "./components/pages/lol/League";
-import Valorant from "./components/pages/valorant/Valorant";
+import Valo from "./components/pages/lol/Valo";
 import Login from "./components/login/Login";
 import About from "./components/pages/about/About";
 import Dashboard from "./components/pages/adminpanel/Dashboard";
@@ -14,6 +14,7 @@ import Sidenav from "./components/navbar/Sidenav";
 import Footer from "./components/footer/Footer";
 import ScrollToTop from "./ScrollToTop";
 import "./App.css";
+import Overwatch from "./components/pages/lol/Overwatch";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -43,7 +44,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/games/league-of-legends" element={<League />} />
               <Route path="/about" element={<About />} />
-              <Route path="/games/valorant" element={<Valorant />} />
+              <Route path="/games/valorant" element={<Valo />} />
+              <Route path="/games/overwatch" element={<Overwatch />} />
               <Route path="/login" element={<Login />} />
               <Route
                 path="/dashboard"
