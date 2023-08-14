@@ -45,7 +45,7 @@ export default function Navbar() {
             <Link to="/">HOME</Link>
           </div>
           <div className="tag-style">
-            <Link to="/about">ABOUT</Link>
+            <Link to="/about">ORGANISATION</Link>
           </div>
           <Link to="/">
             <div className="logo-cnt">

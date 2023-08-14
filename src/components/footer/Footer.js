@@ -18,6 +18,7 @@ const Footer = () => {
             <Link to="/games/valorant">News</Link>
             <Link to="/aboutus">About us</Link>
             <Link to="/login">Login</Link>
+            <Link to="/dashboard">Dashboard</Link>
           </div>
         </div>
         <div className="games-cnt">

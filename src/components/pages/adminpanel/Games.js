@@ -1,28 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function Games() {
-  const [games, setGames] = useState([
-    { name: "League of Legends", picture: "browserurl.png" },
-    { name: "Valorant", picture: "browserurl2.png" },
-    { name: "Overwatch", picture: "browserurl3.png" },
-  ]);
-  const [newGame, setNewGame] = useState({ name: "", picture: "" });
+  const [games, setGames] = useState([]);
+  const [newGame, setNewGame] = useState({ name: "", backgroundUrl: "" });
+
+  useEffect(() => {
+    // Fetching games from the API when the component mounts
+    axios
+      .get("/api/games")
+      .then((response) => {
+        setGames(response.data);
+      })
+      .catch((error) => {
+        console.error("An error occurred while fetching games:", error);
+      });
+  }, []);
 
   const handleNameChange = (e) => {
     setNewGame({ ...newGame, name: e.target.value });
   };
 
-  const handlePictureURLChange = (e) => {
-    setNewGame({ ...newGame, picture: e.target.value });
+  const handleBackgroundUrlChange = (e) => {
+    setNewGame({ ...newGame, backgroundUrl: e.target.value });
   };
 
   const addGame = () => {
-    setGames([...games, newGame]);
-    setNewGame({ name: "", picture: "" }); // Clear the input fields after adding the game
+    // Sending a post request to add the game
+    axios
+      .post("http://localhost:8080/api/games", newGame)
+      .then(() => {
+        // Re-fetch the games to reflect the added game
+        return axios.get("http://localhost:8080/api/games");
+      })
+      .then((response) => {
+        setGames(response.data);
+        setNewGame({ name: "", backgroundUrl: "" }); // Clear the input fields after adding the game
+      })
+      .catch((error) => {
+        console.error("An error occurred while adding a game:", error);
+      });
   };
 
-  const deleteGame = (index) => {
-    setGames(games.filter((_, i) => i !== index)); // Remove the game at the given index
+  const deleteGame = (id) => {
+    // Sending a delete request to remove the game
+    axios
+      .delete(`http://localhost:8080/api/games/${id}`)
+      .then(() => {
+        // Re-fetch the games to reflect the deleted game
+        return axios.get("http://localhost:8080/api/games");
+      })
+      .then((response) => {
+        setGames(response.data);
+      })
+      .catch((error) => {
+        console.error("An error occurred while deleting a game:", error);
+      });
   };
 
   return (
@@ -36,19 +69,19 @@ export default function Games() {
       />
       <input
         type="text"
-        placeholder="Picture URL"
-        value={newGame.picture}
-        onChange={handlePictureURLChange}
+        placeholder="Background URL"
+        value={newGame.backgroundUrl}
+        onChange={handleBackgroundUrlChange}
         className="inputextend"
       />
       <button onClick={addGame} className="save-btn">
         ADD
       </button>
       <ul>
-        {games.map((game, index) => (
-          <li key={index} className="playerinfo">
-            {game.name} <img src={game.picture} alt={game.name} />
-            <button onClick={() => deleteGame(index)} className="edit-btn">
+        {games.map((game) => (
+          <li key={game.id} className="playerinfo">
+            {game.name} <img src={game.backgroundUrl} alt={game.name} />
+            <button onClick={() => deleteGame(game.id)} className="edit-btn">
               DELETE
             </button>
           </li>

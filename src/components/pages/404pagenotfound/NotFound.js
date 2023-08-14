@@ -9,7 +9,6 @@ export default function NotFound() {
       <img src={computer} alt="404-icon" />
       <div className="error-holder">
         <h1>Sorry, we cant find the page you're looking for.</h1>
-        <p>Our devolopers are probably playing some soloq!</p>
       </div>
     </div>
   );

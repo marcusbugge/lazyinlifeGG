@@ -14,7 +14,6 @@ function PlayerSection({ title, players, loaded, show, extendCards, game }) {
             <div key={index}>
               <div className="playerinfo">
                 <div className="player-data-cnt">
-                  <p className="role">{player.twitter}</p>
                   <p className="player">{player.name}</p>
                 </div>
                 <div className="player-edit-btn">
@@ -27,7 +26,12 @@ function PlayerSection({ title, players, loaded, show, extendCards, game }) {
                 </div>
               </div>
               {show.game === game && show.index === index ? (
-                <Edit index={index} game={player.game} player={player} />
+                <Edit
+                  index={index}
+                  game={player.game}
+                  player={player}
+                  close={() => extendCards(game, index)}
+                />
               ) : null}
             </div>
           ))
@@ -42,7 +46,11 @@ export default function Dashboard() {
   const [show, setShow] = useState({ game: null, index: -1 });
 
   const extendCards = (game, index) => {
-    setShow({ game, index });
+    if (show.game === game && show.index === index) {
+      setShow({ game: null, index: -1 }); // Close the card if it's already opened
+    } else {
+      setShow({ game, index }); // Open the card if it's not already opened
+    }
   };
 
   const gameIds = {

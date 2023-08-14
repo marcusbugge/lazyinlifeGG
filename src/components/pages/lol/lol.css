@@ -1,7 +1,6 @@
 /* CONTENT */
 
 .content-lol {
- 
 }
 
 .leaguebanner {
@@ -9,11 +8,10 @@
   background-repeat: no-repeat;
   height: 80vh;
   width: 100vw;
-  padding-left: 20vw;
+  padding-left: 15vw;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  
 }
 
 .leaguebanner h1 {
@@ -27,17 +25,11 @@
 
 .head {
   display: flex;
- 
 }
-
-
 
 .title-team {
   color: goldenrod;
   font-weight: 600;
-  
-
-
 }
 .strekdiv {
   position: absolute;
@@ -50,7 +42,7 @@
   align-items: center;
   border-radius: 10px;
   font-family: var(--asapfont);
-  font-size: .6rem;
+  font-size: 0.6rem;
 }
 
 /* START OF COUNTDOWN */
@@ -59,25 +51,19 @@
 
 /* PLAYER PRESENTATION */
 
-
 .main-team-cnt {
-
   margin-bottom: 150px;
 }
 
-
-
 .data {
-  padding-left: 20vw;
+  padding-left: 15vw;
   margin-top: 100px;
 }
-
 
 .team-desc-cnt p {
   color: rgb(130, 130, 130);
   margin-left: 1rem;
 }
-
 
 .team-name {
   font-size: 3rem;
@@ -89,7 +75,6 @@
   width: 100%;
   background: var(--tae_foreground_primary);
 }
-
 
 .stroke {
   position: absolute;
@@ -103,8 +88,6 @@
   position: absolute;
   display: flex;
 }
-
-
 
 /* END OF PLAYERPRESENTATION */
 
@@ -131,7 +114,7 @@
 .watch-game-cnt p {
   color: goldenrod;
   font-weight: 600;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .watch-game-cnt h1 {

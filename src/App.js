@@ -15,6 +15,7 @@ import Footer from "./components/footer/Footer";
 import ScrollToTop from "./ScrollToTop";
 import "./App.css";
 import Overwatch from "./components/pages/lol/Overwatch";
+import Playerpage from "./components/pages/Player/Playerpage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -47,6 +48,8 @@ function App() {
               <Route path="/games/valorant" element={<Valo />} />
               <Route path="/games/overwatch" element={<Overwatch />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/players/:name" element={<Playerpage />} />
+
               <Route
                 path="/dashboard"
                 element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />}
